@@ -1,0 +1,27 @@
+{
+  "name": "omikuji",
+  "version": "1.0.0",
+  "description": "Discord bot for relaying arbitrary wisdom via virtual fortune cookies.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --env-file=config.env index",
+    "deploy": "node --env-file=config.env deploy",
+    "destroy": "node --env-file=config.env deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-y-z/omikuji.git"
+  },
+  "author": "Alex Turner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alex-y-z/omikuji/issues"
+  },
+  "homepage": "https://github.com/alex-y-z/omikuji#readme",
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3"
+  }
+}
