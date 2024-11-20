@@ -1,5 +1,3 @@
-<img src="content/omi.png" width="100" height="100" style="margin: auto; display: block; border-radius: 25%;">
-
 ## Prerequisites
 
 - [Node.js v20.6.0+](https://nodejs.org/en/download/prebuilt-installer)
