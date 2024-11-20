@@ -24,7 +24,7 @@ npm start # Bring the bot online
 
 ## Commands
 
-```js
+```lua
 /cookie
 /fortune
 /numbers amount: [1, 12] min: [0, 1000] max: [0, 1000]
