@@ -10,7 +10,7 @@ function GetRandomInt(min, max) {
 }
 
 function Default() {
-	return (`> ${fortuneArray[GetRandomInt(0, fortuneCount - 1)].trim()}`);
+	return `> ${fortuneArray[GetRandomInt(0, fortuneCount - 1)].trim()}`;
 }
 
 module.exports = {
@@ -21,6 +21,6 @@ module.exports = {
 	async execute(interaction) {
 		await interaction.reply(Default());
 	},
-
+	
 	default: Default
 };

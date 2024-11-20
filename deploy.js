@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord.js');
-const { clientId, guildId, token } = require('./config.js');
+const { clientId, token } = require('./config.js');
 
 const commands = [];
 const commandsPath = path.join(__dirname, 'commands');
@@ -15,16 +15,19 @@ for (const file of commandFiles) {
 }
 
 const rest = new REST({ version: '10' }).setToken(token);
+const route = process.argv.includes('--guild')
+	? Routes.applicationGuildCommands(clientId, process.env.GUILD_ID)
+	: Routes.applicationCommands(clientId);
 
 switch (process.env.npm_lifecycle_event) {
 	case 'deploy':
-		rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
-			.then(data => console.log(`Successfully registered ${data.length} application commands.`))
+		rest.put(route, { body: commands })
+			.then(data => console.log(`Successfully registered ${data.length} commands.`))
 			.catch(console.error);
 		break;
 	case 'destroy':
-		rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: [] })
-			.then(() => console.log('Successfully deleted all guild commands.'))
+		rest.put(route, { body: [] })
+			.then(() => console.log('Successfully deleted all commands.'))
 			.catch(console.error);
 		break;
 }

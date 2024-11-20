@@ -1,12 +1,13 @@
 {
   "name": "omikuji",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Discord bot for relaying arbitrary wisdom via virtual fortune cookies.",
   "main": "index.js",
   "scripts": {
-    "start": "node --env-file=config.env index",
-    "deploy": "node --env-file=config.env deploy",
-    "destroy": "node --env-file=config.env deploy"
+    "init": "node init && npm run deploy",
+    "start": "node --env-file-if-exists=.env index",
+    "deploy": "node --env-file-if-exists=.env deploy",
+    "destroy": "node --env-file-if-exists=.env deploy"
   },
   "repository": {
     "type": "git",
