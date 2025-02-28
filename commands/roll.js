@@ -31,8 +31,8 @@ module.exports = {
 	
 	async execute(interaction) {
 		const options = interaction.options;
-		const amount = (options.get('amount') ? options.get('amount').value : 2);
-		const sides = (options.get('sides') ? options.get('sides').value : 6);
+		const amount = options.getInteger('amount') ?? 2;
+		const sides = options.getInteger('sides') ?? 6;
 
 		const nums = [];
 		for (let i = 0; i < amount; i++) {

@@ -30,6 +30,9 @@ npm start # Bring the bot online
 /numbers amount: [1, 12] min: [0, 1000] max: [0, 1000]
 /roll amount: [1, 12] sides: [4, 256]
 /flip call: 'heads' | 'tails'
+/pick list: (a, b, ...) amount: [1, #list]
+/shuffle list: (a, b, ...)
+/shake
 ```
 
 ## Attributions

@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, MessageFlags } = require('discord.js');
 
 function GetRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
@@ -37,12 +37,12 @@ module.exports = {
 	
 	async execute(interaction) {
 		const options = interaction.options;
-		const amount = (options.get('amount') ? options.get('amount').value : 6);
-		const min = (options.get('min') ? options.get('min').value : 1);
-		const max = (options.get('max') ? options.get('max').value : min + 55);
+		const amount = options.getInteger('amount') ?? 6;
+		const min = options.getInteger('min') ?? 1;
+		const max = options.getInteger('max') ?? (min + 55);
 
 		if (max < min) {
-			await interaction.reply({ content: '**Incompatible bounds:**  max < min', ephemeral: true });
+			await interaction.reply({ content: '**Incompatible bounds:**  max < min', flags: MessageFlags.Ephemeral });
 			return;
 		}
 

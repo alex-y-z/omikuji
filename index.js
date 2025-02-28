@@ -1,6 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, GatewayIntentBits, MessageFlags } = require('discord.js');
 const { token } = require('./config.js');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -29,7 +29,7 @@ client.on('interactionCreate', async interaction => {
 		await command.execute(interaction);
 	} catch (error) {
 		console.error(error);
-		await interaction.reply({ content: 'There was an error while executing this command.', ephemeral: true });
+		await interaction.reply({ content: 'There was an error while executing this command.', flags: MessageFlags.Ephemeral });
 	}
 });
 

@@ -1,6 +1,6 @@
 {
   "name": "omikuji",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Discord bot for relaying arbitrary wisdom via virtual fortune cookies.",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,6 @@
     "node": ">=20.6.0"
   },
   "dependencies": {
-    "discord.js": "^14.16.3"
+    "discord.js": "^14.18.0"
   }
 }

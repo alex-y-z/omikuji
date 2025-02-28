@@ -2,15 +2,15 @@ const fs = require('node:fs');
 const { SlashCommandBuilder } = require('discord.js');
 
 const buffer = fs.readFileSync('./content/fortunes.txt');
-const fortuneArray = buffer.toString().split(/\n%/);
-const fortuneCount = fortuneArray.length;
+const fortunes = buffer.toString().split(/\n%/);
+const bound = fortunes.length - 1;
 
 function GetRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function Default() {
-	return `> ${fortuneArray[GetRandomInt(0, fortuneCount - 1)].trim()}`;
+	return `> ${fortunes[GetRandomInt(0, bound)].trim().replaceAll('\n', '\n> ')}`;
 }
 
 module.exports = {
